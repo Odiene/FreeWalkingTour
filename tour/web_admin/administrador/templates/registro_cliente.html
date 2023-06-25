@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+
+<title>Ventana emergente en HTML</title>
+<script>
+  function mostrarMensaje() {
+    alert("★★★ Felicitaciones! Te has registrado exitosamente ★★★");
+  }
+</script>
+</head>
+
+  <header>{%include 'cabe.html'%}</header>
+
+  <body>
+    <div class="hero hero-inner">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mx-auto text-center">
+            <div class="intro-wrap">
+              <h1 class="mb-0">Registrate en FreeWalking</h1>
+              <p class="text-white">
+                Y accede a múltiples novedades y beneficios que tenemos para tí.<p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="untree_co-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <form class="contact-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="form-group">
+                <label class="text-white" for="nom_user">Nombre</label>
+                <input type="text" class="form-control" id="nom_user" placeholder="Tu nombre">/>
+              </div>
+
+              <div class="row">
+
+                
+                <div class="col-6">
+                  <div class="form-group">
+                    <label class="text-white" for="ape_pat">Apellido Paterno</label>
+                    <input type="text" class="form-control" id="ape_pat" placeholder="Primer apellido" />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label class="text-white" for="ape_mat"
+                      >Apellido Materno</label>
+                    <input type="text" class="form-control" id="ape_mat" placeholder="Segundo apellido"/>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="text-white" for="dni">Rut | Pasaporte</label>
+                <input type="text" class="form-control" id="dni" placeholder="11111111-1">/>
+              </div>
+
+              <div class="form-group">
+                <label class="text-white" for="direccion">Dirección</label>
+                <input type="text" class="form-control" id="direccion" placeholder="Tu dirección">/>
+              </div>
+
+              <div class="form-group">
+                <label class="text-white" for="id_ciudad">Ciudad:</label>
+                <select class="form-control" id="id_ciudad">
+                  <option value="1">Santiago</option>
+                  <option value="2">Arica</option>
+                  <option value="3">Iquique</option>
+                  <option value="4">Antofagasta</option>
+                  <option value="5">La Serena</option>
+                  <option value="6">Valparaíso</option>
+                  <option value="7">Rancagua</option>
+                  <option value="8">Talca</option>
+                  <option value="9">Concepción</option>
+                  <option value="10">Temuco</option>
+                  <option value="11">	Puerto Montt</option>
+                  <option value="12">Coyhaique</option>
+                  <option value="13">Magallanes</option>
+                  <!-- Agrega más opciones según sea necesario -->
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="text-white" for="contacto">Celular | Whatsapp</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="contacto" style="width: calc(100% - 90px);" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="text-white" for="email">Correo electronico</label>
+                <input type="email" class="form-control" id="email" placeholder="aaaaa@aaaa.com"/>
+              </div>
+
+
+              <button type="submit text-white" class="btn btn-primary text-black" onclick="mostrarMensaje()">
+                Registrarte
+              </button>
+
+            </form>
+          </div>
+          
+          <div class="col-lg-5 ml-auto">
+            <div class="quick-contact-item d-flex align-items-center mb-4">
+              <address class="text text-primary" style="font-size: 12px;">
+                ✓✓   Al registrarte podrás acceder a información exclusiva sobre nuestros tours, destinos y actividades. Esto te permitirá estar al tanto de las últimas novedades y nuevas experiencias que ofrecemos.
+              </address>
+            </div>
+            <div class="quick-contact-item d-flex align-items-center mb-4">
+              <address class="text text-primary" style="font-size: 12px;">
+                ✓✓   Podremos enviarte descuentos y promociones especiales que se adapten a tus intereses y preferencias. Esto te permitirá aprovechar ofertas exclusivas y ahorrar dinero en tus próximas reservas.
+              </address>
+            </div>
+            <div class="quick-contact-item d-flex align-items-center mb-4">
+              <address class="text text-primary" style="font-size: 12px;">
+                ✓✓   Mediante la suscripción a nuestra web de tours, recibirás notificaciones instantáneas sobre cambios de horarios, actualizaciones importantes y cualquier otra información relevante relacionada con tus reservas. De esta manera, estarás siempre al tanto de cualquier novedad que pueda afectar a tu experiencia de viaje.  
+              </address>
+            </div>
+
+            <div class="quick-contact-item d-flex align-items-center mb-4">
+              <address class="text text-primary" style="font-size: 12px;">
+                ✓✓   Tendrás la opción de proporcionar detalles sobre tus preferencias de viaje, intereses y requisitos específicos. Esto nos permitirá personalizar tus experiencias y recomendarte tours y actividades que se ajusten a tus necesidades. Obtendrás recomendaciones adaptadas a tus gustos y podrás descubrir nuevos destinos que quizás no habías considerado previamente.  
+              </address>
+            </div>
+
+            <div class="quick-contact-item d-flex align-items-center mb-4">
+              <address class="text text-primary" style="font-size: 12px;">
+                ✓✓   Recuerda que registrarte en nuestra web de tours es completamente gratuito y te brindará numerosos beneficios para mejorar tus futuros viajes.
+              </address>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>{%include 'footer.html'%}</footer>
+
+    <div id="overlayer"></div>
+    <div class="loader">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Cargando...</span>
+      </div>
+    </div>
+
+    <script src="{% static 'js/jquery-3.4.1.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'js/jquery.animateNumber.min.js'%}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js'%}"></script>
+    <script src="{% static 'js/jquery.fancybox.min.js'%}"></script>
+    <script src="{% static 'js/aos.js'%}"></script>
+    <script src="{% static 'js/moment.min.js'%}"></script>
+    <script src="{% static 'js/daterangepicker.js'%}"></script>
+
+    <script src="{% static 'js/typed.js'%}"></script>
+
+    <script src="{% static 'js/custom.js'%}"></script>
+  </body>
+</html>
