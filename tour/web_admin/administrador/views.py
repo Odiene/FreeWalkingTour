@@ -4,7 +4,7 @@ from django import views
 from .models import *
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-
+from django.shortcuts import render, get_object_or_404
 from .views import *
 from django.template import loader
 
@@ -155,7 +155,6 @@ def actualizarGuia(request):
             and request.POST.get('fnac_guia')
             and request.POST.get('email_guia')
             and request.POST.get('id_pais')
-
         ):
             # Obtener el objeto de usuario a actualizar
             user = Guia.objects.get(id_guia=request.POST.get('id_guia'))
@@ -168,7 +167,11 @@ def actualizarGuia(request):
             user.contacto_guia = request.POST.get('contacto_guia')
             user.fnac_guia = request.POST.get('fnac_guia')
             user.email_guia = request.POST.get('email_guia')
-            user.id_pais = request.POST.get('id_pais')
+
+            # Obtener la instancia de Pais correspondiente
+            pais_id = request.POST.get('id_pais')
+            pais = Pais.objects.get(id_pais=pais_id)
+            user.id_pais = pais
 
             # Guardar los cambios en la base de datos
             user.save()
@@ -196,6 +199,7 @@ def agregarGuia(request):
               fnac_guia, email_guia, id_pais)
 
         if dni and nom_guia and pape_guia and sape_guia and contacto_guia and fnac_guia and email_guia and id_pais:
+            pais = get_object_or_404(Pais, id_pais=id_pais)
             user = Guia()
             user.dni = dni
             user.nom_guia = nom_guia
@@ -204,7 +208,7 @@ def agregarGuia(request):
             user.contacto_guia = contacto_guia
             user.fnac_guia = fnac_guia
             user.email_guia = email_guia
-            user.id_pais = id_pais
+            user.id_pais = pais
             user.save()
             return redirect('listarGuia')
         else:
@@ -326,7 +330,7 @@ def actualizarCliente(request):
             and request.POST.get('contacto')
             and request.POST.get('direccion')
             and request.POST.get('email')
-            and request.POST.get('nom_ciudad')
+            and request.POST.get('id_ciudad')
         ):
             # Obtener el objeto de usuario a actualizar
             user = Cliente.objects.get(
@@ -341,12 +345,18 @@ def actualizarCliente(request):
             user.contacto = request.POST.get('contacto')
             user.direccion = request.POST.get('direccion')
             user.email = request.POST.get('email')
-            user.id_ciudad = request.POST.get('id_ciudad')
+
+            # Obtener la instancia de Ciudad correspondiente
+            ciudad_id = request.POST.get('id_ciudad')
+            ciudad = Ciudad.objects.get(id_ciudad=ciudad_id)
+            user.id_ciudad = ciudad
 
             # Guardar los cambios en la base de datos
             user.save()
 
             return redirect('listarCliente')
+        else:
+            return HttpResponse("Faltan datos en el formulario")
     else:
         users = Cliente.objects.all()
         datos = {'cliente': users}
@@ -363,13 +373,15 @@ def agregarCliente(request):
         contacto = request.POST.get('contacto')
         direccion = request.POST.get('direccion')
         email = request.POST.get('email')
-        id_ciudad = request.POST.get('nom_ciudad')
+        id_ciudad = request.POST.get('id_ciudad')
 
         # Imprime los valores de los campos para depurar
         print(dni, username, ape_pat, ape_mat, genero,
               contacto, direccion, email, id_ciudad)
 
         if dni and username and ape_pat and ape_mat and genero and contacto and direccion and email and id_ciudad:
+            # Obtener la instancia de la ciudad
+            ciudad = get_object_or_404(Ciudad, id_ciudad=id_ciudad)
             user = Cliente()
             user.dni = dni
             user.username = username
@@ -379,13 +391,13 @@ def agregarCliente(request):
             user.contacto = contacto
             user.direccion = direccion
             user.email = email
-            user.nom_ciudad = nom_ciudad
+            user.id_ciudad = ciudad  # Asignar la instancia de la ciudad en lugar del ID
             user.save()
-            return redirect('listarCliente')
+            return redirect('agregarCliente')
         else:
             return HttpResponse("Faltan datos en el formulario")
     else:
-        return render(request, "Cliente/agregarCliente.html")
+        return render(request, "registro_cliente.html")
 
 
 def eliminarCliente(request):

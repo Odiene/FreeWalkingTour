@@ -5,9 +5,8 @@
     <thead>
       <tr>
         <th scope="col">id_usuario</th>
-        <th scope="col">nombre_usuario</th>
+        <th scope="col">username</th>
         <th scope="col">mail</th>
-        <th scope="col">timestamp</th>
         <th scope="col">clave</th>
       </tr>
     </thead>
@@ -15,9 +14,8 @@
       {%for u in usuarios%}
       <tr>
         <th scope="row">{{ u.id_usuario }}</th>
-        <td>{{ u.nombre_usuario }}</td>
+        <td>{{ u.username }}</td>
         <td>{{ u.mail }}</td>
-        <td>{{ u.timestamp }}</td>
         <td>{{ u.clave }}</td>
       </tr>
       {%endfor%}

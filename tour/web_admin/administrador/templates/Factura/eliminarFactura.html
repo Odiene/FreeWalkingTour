@@ -13,9 +13,12 @@
               <i class="fa fa-id-card"></i>
             </div>
           </div>
+         
           <select id="id_factura" name="id_factura">
             {% for u in factura %}
-            <option value="{{ u.id_factura }}">{{ u.id_factura }}</option>
+            <option value="{{ u.id_factura }}" {% if u.id_factura == factura.id_factura %}selected{% endif %}>
+              {{ u.id_factura }} - {{ u.fecha }} 
+          </option>
             {% endfor %}
           </select>
         </div>

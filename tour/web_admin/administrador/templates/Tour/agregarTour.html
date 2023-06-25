@@ -1,7 +1,7 @@
 {% extends '../index_master.html'%} {% block content %}
 <div class="right_col" role="main">
   <h2>Agregar Reserva</h2>
-  <form action="agregarReserva" method="POST">
+  <form action="agregarTour" method="POST">
     {% csrf_token %}
     <div class="form-group row">
       <label for="nom_tour" class="col-4 col-form-label">Nombre del Tour</label> 

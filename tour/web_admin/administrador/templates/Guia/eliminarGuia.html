@@ -15,7 +15,9 @@
           </div>
           <select id="id_guia" name="id_guia">
             {% for u in guia %}
-            <option value="{{ u.id_guia }}">{{ u.id_guia }}</option>
+            <option value="{{ u.id_guia }}" {% if u.id_guia == guia.id_guia %}selected{% endif %}>
+              {{ u.id_guia }} - {{ u.nom_guia }}  {{ u.pape_guia }}  {{ u.sape_guia }}
+          </option>
             {% endfor %}
           </select>
         </div>

@@ -2,7 +2,7 @@
 <div class="right_col" role="main">
   <h2>Actualizar Reserva</h2>
 
-  <form action="actualizarReserva" method="POST">
+  <form action="actualizarTour" method="POST">
     {% csrf_token %}
 
     <div class="form-group row">
@@ -14,9 +14,11 @@
               <i class="fa fa-id-card"></i>
             </div>
           </div>
-          <select id="id_reserva" name="id_reserva">
-            {% for u in reserva %}
-            <option value="{{ u.id_reserva }}">{{ u.id_reserva }}</option>
+          <select id="id_tour" name="id_tour">
+            {% for u in tour %}
+            <option value="{{ u.id_tour }}" {% if u.id_tour == tour.id_tour %}selected{% endif %}>
+              {{ u.id_tour }} - {{ u.nom_tour }} ${{ u.valor_tour }}
+          </option>
             {% endfor %}
           </select>
         </div>

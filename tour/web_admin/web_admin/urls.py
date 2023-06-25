@@ -29,7 +29,7 @@ urlpatterns = [
     path('contacto', views.agregarContacto, name='contacto'),
     path('acerca_de', views.acerca_de, name='post_list'),
     path('elements', views.elements, name='elements'),
-    path('registro_cliente', views.registro_cliente, name='registro_cliente'),
+    path('registro_cliente', views.agregarCliente, name='registro_cliente'),
     path('pago_tour', views.pago_tour, name='pago_tour'),
     path('pago_final', views.pago_final, name='pago_final'),
 

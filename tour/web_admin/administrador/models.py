@@ -131,7 +131,7 @@ class Cliente(models.Model):
     contacto = models.CharField(max_length=30)
     direccion = models.TextField(default=0)
     email = models.EmailField(max_length=50)
-    nom_ciudad = models.CharField(max_length=20)
+    id_ciudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE, default=0)
 
     class Meta:
         db_table = 'cliente'

@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="form-group row">
-      <label for="text" class="col-4 col-form-label">Nombre</label> 
+      <label for="username" class="col-4 col-form-label">Nombre</label> 
       <div class="col-8">
         <div class="input-group">
           <div class="input-group-prepend">
@@ -25,7 +25,7 @@
               <i class="fa fa-user-circle"></i>
             </div>
           </div> 
-          <input id="text" name="text" type="text" required="required" class="form-control">
+          <input id="username" name="username" type="text" required="required" class="form-control">
         </div>
       </div>
     </div>
@@ -38,12 +38,12 @@
               <i class="fa fa-chrome"></i>
             </div>
           </div> 
-          <input id="text" name="text" type="text" required="required" class="form-control">
+          <input id="ape_pat" name="ape_pat" type="text" required="required" class="form-control">
         </div>
       </div>
     </div>
     <div class="form-group row">
-      <label for="text" class="col-4 col-form-label">Apellido Materno</label> 
+      <label for="ape_mat" class="col-4 col-form-label">Apellido Materno</label> 
       <div class="col-8">
         <div class="input-group">
           <div class="input-group-prepend">
@@ -51,7 +51,7 @@
               <i class="fa fa-cc-amex"></i>
             </div>
           </div> 
-          <input id="text" name="text" type="text" required="required" class="form-control">
+          <input id="ape_mat" name="ape_mat" type="text" required="required" class="form-control">
         </div>
       </div>
     </div>
@@ -108,7 +108,7 @@
       </div>
     </div>
     <div class="form-group row">
-      <label for="text" class="col-4 col-form-label">id_ciudad</label> 
+      <label for="id_ciudad" class="col-4 col-form-label">id_ciudad</label> 
       <div class="col-8">
         <div class="input-group">
           <div class="input-group-prepend">
@@ -116,10 +116,18 @@
               <i class="fa fa-home"></i>
             </div>
           </div> 
-          <input id="text" name="text" type="text" class="form-control">
+          <select id="id_ciudad" name="id_ciudad" class="form-control">
+            <option value="">Seleccionar ciudad</option>
+            <!-- Aquí puedes generar dinámicamente las opciones con los valores de la tabla "Ciudad" -->
+            <option value="1">Santiago</option>
+            <option value="2">Valparaiso</option>
+            <option value="3">Viña Del Mar</option>
+            <!-- ... -->
+          </select>
         </div>
       </div>
-    </div> 
+    </div>
+    
     <div class="form-group row">
       <div class="offset-4 col-8">
         <button name="submit" type="submit" class="btn btn-primary">AGREGAR CLIENTE</button>
